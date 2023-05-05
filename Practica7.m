@@ -1,3 +1,4 @@
+% rubi
 function varargout = Practica7(varargin)
 % PRACTICA7 MATLAB code for Practica7.fig
 %      PRACTICA7, by itself, creates a new PRACTICA7 or raises the existing
