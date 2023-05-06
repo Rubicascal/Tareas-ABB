@@ -69,6 +69,40 @@ function varargout = Practica7_OutputFcn(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 % Get default command line output from handles structure
+%slider_operation(handles, 0);
+
+
+
+varargout{1} = handles.output;
+
+
+% --- Executes on slider movement.
+function slider1_Callback(hObject, eventdata, handles)
+% hObject    handle to slider1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'Value') returns position of slider
+%        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
+desfase = get (hObject, 'Value');
+slider_operation(handles, desfase)
+disp(desfase)
+
+% set (handles.frec,'string',num2str(desf));
+
+% --- Executes during object creation, after setting all properties.
+function slider1_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to slider1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: slider controls usually have a light gray background.
+if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor',[.9 .9 .9]);
+end
+
+
+function slider_operation(handles, fase)
 
 fs=1000;
 F1=5
@@ -76,7 +110,7 @@ t = 1/fs:1/fs:2; %Vector tiempo que llega hasta 2
 t2 = 1/fs:1/fs:8; % Vector de tiempo que llega hasta 8
 f = fs*(0:((fs*t(end))/2))/(fs*t(end));
 f2 = fs*(0:((fs*t2(end))/2))/(fs*t2(end));
-s1= square(2*pi*F1*t); %f1=5
+s1= square(2*pi*F1*t+fase); %f1=5
 
 
 title('Señal cuadratica ');
@@ -97,34 +131,6 @@ Norm1(2:end-1) = 2*Norm1(2:end-1);
 title('Señal con fourier ');
 xlabel('Tiempo (seg)');
 ylabel('Amplitud');
-plot (handles.Fourier,t,s1)
+plot (handles.Fourier,f,Norm1)
+plot (handles.Fourier2,t,Fourier1)
 
-
- 
-
-
-
-
-varargout{1} = handles.output;
-
-
-% --- Executes on slider movement.
-function slider1_Callback(hObject, eventdata, handles)
-% hObject    handle to slider1 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'Value') returns position of slider
-%        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
-
-
-% --- Executes during object creation, after setting all properties.
-function slider1_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to slider1 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: slider controls usually have a light gray background.
-if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor',[.9 .9 .9]);
-end
