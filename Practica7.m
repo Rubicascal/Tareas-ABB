@@ -1,4 +1,3 @@
-% rubi
 function varargout = Practica7(varargin)
 % PRACTICA7 MATLAB code for Practica7.fig
 %      PRACTICA7, by itself, creates a new PRACTICA7 or raises the existing
@@ -52,7 +51,6 @@ function Practica7_OpeningFcn(hObject, eventdata, handles, varargin)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 % varargin   command line arguments to Practica7 (see VARARGIN)
-% comentario extra agregado por luis
 % Choose default command line output for Practica7
 handles.output = hObject;
 
