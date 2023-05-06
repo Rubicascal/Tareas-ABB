@@ -69,7 +69,7 @@ function varargout = Practica7_OutputFcn(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 % Get default command line output from handles structure
-%slider_operation(handles, 0);
+slider_operation(handles, 0);
 
 
 
